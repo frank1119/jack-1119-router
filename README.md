@@ -5,7 +5,7 @@ The modifications made are done to adjust the client name by which the Jack-Rout
 
 If the switch `-in=` exists on the command-line, the part after `-in=` is added to the client's executable name, separated with a dash:
 
-Example
+Example:
 ```
 "c:\program files\mydaw\mydaw.exe" -in=client1
 ```

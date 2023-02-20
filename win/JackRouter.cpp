@@ -78,7 +78,7 @@ static std::ofstream* fStream;
 
 // class id.
 // {838FE50A-C1AB-4b77-B9B6-0A40788B53F3}
-CLSID IID_ASIO_DRIVER = { 0x838fe50a, 0xc1ab, 0x4b77, { 0xb9, 0xb6, 0xa, 0x40, 0x78, 0x8b, 0x53, 0xf3 } };
+CLSID IID_ASIO_DRIVER = { 0x838fe50a, 0xc1ab, 0x4b77, { 0xb9, 0xb6, 0xa, 0x40, 0x78, 0x8b, 0x53, 0xf4 } };
 
 
 CFactoryTemplate g_Templates[1] = {
@@ -117,8 +117,11 @@ HRESULT _stdcall DllRegisterServer()
 
 	if (rc) {
 		memset(errstr, 0, 128);
-		sprintf(errstr, "Register Server failed ! (%d)", rc);
-		MessageBox(0, (LPCTSTR)errstr, (LPCTSTR)"JackRtr1119", MB_OK);
+		string errstr;
+		errstr.append("Register Server failed ! (");
+		errstr.append(to_string(rc));
+		errstr.append(")");
+		MessageBox(0, errstr.c_str(), (LPCTSTR)"JackRtr1119", MB_OK);
 		return -1;
 	}
 
@@ -131,15 +134,17 @@ HRESULT _stdcall DllRegisterServer()
 HRESULT _stdcall DllUnregisterServer()
 {
 	LONG	rc;
-	char	errstr[128];
 
 	rc = UnregisterAsioDriver(IID_ASIO_DRIVER, JACK_ROUTER, "JackRtr1119");
 
 	if (rc) {
-		memset(errstr, 0, 128);
-		sprintf(errstr, "Unregister Server failed ! (%d)", rc);
-		MessageBox(0, (LPCTSTR)errstr, (LPCTSTR)"JackRtr1119", MB_OK);
-		return -1;
+		string errstr;
+		errstr.append("Unregister Server failed ! (");
+		errstr.append(to_string(rc));
+		errstr.append(")");
+
+		MessageBox(0, errstr.c_str(), (LPCTSTR)"JackRtr1119", MB_OK);
+		return (HRESULT) -1;
 	}
 
 	return S_OK;
@@ -197,7 +202,7 @@ JackRouter::JackRouter() : AsioDriver()
 
 		// Compute .ini file path
 		string fullPath = dllName;
-		int lastPos = fullPath.find_last_of(PATH_SEP);
+		size_t lastPos = fullPath.find_last_of(PATH_SEP);
 		string  dllFolder = fullPath.substr(0, lastPos);
 		confPath = dllFolder + PATH_SEP + "JackRtr1119.ini";
 
@@ -300,7 +305,7 @@ static bool GetEXEName(DWORD dwProcessID, char* name)
 				if (EnumProcessModules(hProcess, &hMod, sizeof(hMod), &cbNeeded)) {
 					//Get the name of the exe file
 					GetModuleBaseName(hProcess, hMod, szEXEName, sizeof(szEXEName) / sizeof(TCHAR));
-					int len = strlen((char*)szEXEName) - 4; // remove ".exe"
+					size_t len = strlen((char*)szEXEName) - 4; // remove ".exe"
 					strncpy(name, (char*)szEXEName, len);
 					name[len] = '\0';
 					/*

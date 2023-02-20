@@ -1,9 +1,7 @@
 LIBRARY			JackRtr1119
-DESCRIPTION		'ASIO Jack Driver'
-PROTMODE
-EXPORTS	
-				DllMain
-				DllGetClassObject
-				DllCanUnloadNow
-				DllRegisterServer
-				DllUnregisterServer
+EXPORTS
+				DllMain				PRIVATE
+				DllGetClassObject	PRIVATE
+				DllCanUnloadNow		PRIVATE
+				DllRegisterServer	PRIVATE
+				DllUnregisterServer	PRIVATE
