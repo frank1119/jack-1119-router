@@ -316,7 +316,7 @@ static bool GetEXEName(DWORD dwProcessID, char* name)
 					string srch = " -in=";
 					size_t pos = sCmdLine.find(srch, 0);
 
-					if (pos != 0)
+					if (pos != std::string::npos)
 					{
 						name[len] = '-';
 						len++;
