@@ -23,6 +23,7 @@
     <SccLocalPath />
     <ProjectGuid>{08E8BE85-76F9-4070-B85E-0CA6A38BCBB4}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>JackRtr1119</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -165,7 +166,7 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>Debug/JackRouter_debug.dll</OutputFile>
+      <OutputFile>Debug/$(ProjectName)_debug.dll</OutputFile>
       <ImportLibrary>.\Debug\JackRouter_debug.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>.\JackRouter.def</ModuleDefinitionFile>
@@ -248,7 +249,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LinkDLL>true</LinkDLL>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release64\JackRouter.dll</OutputFile>
+      <OutputFile>.\Release64\$(ProjectName).dll</OutputFile>
       <ImportLibrary>.\Release\JackRouter64.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>.\JackRouter.def</ModuleDefinitionFile>
