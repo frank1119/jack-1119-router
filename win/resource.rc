@@ -7,7 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
+#include "windows.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -42,12 +42,12 @@ BEGIN
         BLOCK "040c04b0"
         BEGIN
             VALUE "CompanyName", "Grame"
-            VALUE "FileDescription", "JackRouter ASIO driver"
+            VALUE "FileDescription", "JackRtr1119 ASIO driver"
             VALUE "FileVersion", "0, 2, 1, 0"
-            VALUE "InternalName", "JackRouter"
+            VALUE "InternalName", "JackRtr1119"
             VALUE "LegalCopyright", "Copyright Grame © 2006-2011"
-            VALUE "OriginalFilename", "JackRouter.dll"
-            VALUE "ProductName", "JackRouter"
+            VALUE "OriginalFilename", "JackRtr1119.dll"
+            VALUE "ProductName", "JackRtr1119"
             VALUE "ProductVersion", "0, 2, 1, 0"
         END
     END
