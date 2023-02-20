@@ -1,5 +1,5 @@
 # JackRtr1119 Readme
-This repository contains (*slightly midified*) the JackRouter code from https://github.com/jackaudio/jack-router
+This repository contains (*slightly modified*) the JackRouter code from https://github.com/jackaudio/jack-router
 
 The modifications made are done to adjust the client name by which the Jack-Router instance appears. The change is helpful to distinguish multiple instances of a particular live performance host. 
 
